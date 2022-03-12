@@ -1,4 +1,4 @@
-const api_url = "http://api.weatherapi.com/v1/forecast.json?";
+const api_url = "https://api.weatherapi.com/v1/forecast.json?";
 const api_key = `key=${process.env.REACT_APP_KEY}`;
 
 export const weather_api = (query) =>
