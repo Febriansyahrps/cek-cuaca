@@ -65,11 +65,11 @@ const TimeContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-block: 100px 20px;
+    margin: 100px 0 20px 0;
     width: 250px;
     height: 100px;
     background: rgba(17, 17, 31, 0.8);
-    padding-inline: 20px;
+    padding: 0 20px;
     margin-left: 2.5%;
     @media screen and (max-width: 600px) {
       margin-top: 150px;
@@ -94,7 +94,7 @@ const WeatherContainer = styled.div`
   }
   @media screen and (min-height: 900px) {
     flex-direction: column;
-    padding-inline: 5%;
+    padding: 0 5%;
   }
 `;
 const CurrentWeatherContainer = styled.div`
