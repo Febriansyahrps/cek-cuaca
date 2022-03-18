@@ -64,15 +64,15 @@ const Forecast = () => {
 
 const ForecastContainer = styled.div`
   hr {
-    margin-block: 15px;
+    margin: 15px 0;
     width: 100%;
     border: solid 1px rgba(250, 250, 250, 0.1);
   }
   @media screen and (max-width: 600px) {
-    margin-inline: 20px;
+    margin: 0 20px;
   }
   @media screen and (max-width: 450px) {
-    margin-inline: 10px;
+    margin: 0 10px;
   }
   @media screen and (min-width: 601px) {
     hr {
@@ -87,7 +87,7 @@ const ForecastContainer = styled.div`
 `;
 const Location = styled.div`
   p {
-    margin-block: 10px;
+    margin: 10px 0;
   }
   @media screen and (max-width: 600px) {
     h2 {

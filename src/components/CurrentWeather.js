@@ -47,8 +47,7 @@ const CurrentWeather = () => {
 const CurrentWeatherContainer = styled.div`
   height: 100%;
   h2 {
-    margin-left: 20px;
-    margin-block: 10px;
+    margin: 10px 0 10px 20px;
   }
   @media screen and (min-width: 601px) {
     h2 {
@@ -108,7 +107,7 @@ const WeatherInfo = styled.div`
   }
   img {
     width: 20px;
-    margin-inline: 10px;
+    margin: 0 10px;
   }
   @media screen and (max-width: 900px) {
     margin: 0;
