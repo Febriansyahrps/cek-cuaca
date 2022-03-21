@@ -108,8 +108,12 @@ const CardsContainer = styled.div`
     background: none;
     border: none;
     svg {
+      transition: all ease 0.25s;
       font-size: 50px;
       color: #fafafa;
+      &:hover {
+        color: #baadaa;
+      }
       @media screen and (max-width: 900px) {
         font-size: 30px;
       }
