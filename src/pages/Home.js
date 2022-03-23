@@ -6,6 +6,7 @@ import { getTimeHandler, getDateHandler } from "../components/util";
 import Navbar from "../components/Navbar";
 import CurrentWeather from "../components/CurrentWeather";
 import styled from "styled-components";
+import Loading from "../components/Loading";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const Home = () => {
         setErrorMessage={setErrorMessage}
       />
       <ErrorMessage>{locationError && <p>{errorMessage}</p>}</ErrorMessage>
+      {loading && <Loading />}
       {!loading && (
         <BottomContainer>
           <TimeContainer>
