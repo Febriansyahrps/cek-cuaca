@@ -11,19 +11,33 @@ const Home = () => {
   const dispatch = useDispatch();
   // state
   const [location, setLocation] = useState(null);
+  const [locationError, setLocationError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   useEffect(() => {
     // get location
-    navigator.geolocation.getCurrentPosition((state) => {
-      const position = `${state.coords.latitude} ${state.coords.longitude}`;
-      setLocation(position);
-    });
+    navigator.geolocation.getCurrentPosition(
+      (state) => {
+        const position = `${state.coords.latitude} ${state.coords.longitude}`;
+        setLocation(position);
+        setLocationError(false);
+      },
+      (err) => {
+        setLocationError(true);
+        setErrorMessage(`Error, ${err.message}`);
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
     dispatch(getLocationWeather(location));
   }, [dispatch, location]);
   // useSelector
   const { weather, loading } = useSelector((state) => state.weatherInfo);
   return (
     <HomeContainer>
-      <Navbar />
+      <Navbar
+        setLocationError={setLocationError}
+        setErrorMessage={setErrorMessage}
+      />
+      <ErrorMessage>{locationError && <p>{errorMessage}</p>}</ErrorMessage>
       {!loading && (
         <BottomContainer>
           <TimeContainer>
@@ -51,6 +65,10 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+`;
+const ErrorMessage = styled.div`
+  margin-top: 10px;
+  background: rgba(17, 17, 31, 0.8);
 `;
 const BottomContainer = styled.div`
   display: flex;

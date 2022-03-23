@@ -8,7 +8,7 @@ import {
   getSearchedWeather,
 } from "../actions/weatherActions";
 
-const Navbar = () => {
+const Navbar = ({ setLocationError, setErrorMessage }) => {
   const dispatch = useDispatch();
   // state
   const [location, setLocation] = useState(null);
@@ -24,10 +24,18 @@ const Navbar = () => {
   };
   // current position handler
   const currentPositionHandler = () => {
-    navigator.geolocation.getCurrentPosition((state) => {
-      const position = `${state.coords.latitude} ${state.coords.longitude}`;
-      setLocation(position);
-    });
+    navigator.geolocation.getCurrentPosition(
+      (state) => {
+        const position = `${state.coords.latitude} ${state.coords.longitude}`;
+        setLocation(position);
+        setLocationError(false);
+      },
+      (err) => {
+        setLocationError(true);
+        setErrorMessage(`Error, ${err.message}`);
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
     dispatch(getLocationWeather(location));
   };
   return (
@@ -55,7 +63,7 @@ const Navbar = () => {
 };
 
 const NavbarContainer = styled.div`
-  margin-top: 40px;
+  margin-top: 25px;
   width: 100%;
   display: flex;
   flex-direction: column;
