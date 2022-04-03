@@ -29,7 +29,7 @@ const Forecast = () => {
         <h2>
           {weather.data.location.name}, {weather.data.location.country}
         </h2>
-        <p>Forecast in next 6 hour</p>
+        <p>Forecast in next 24 hour</p>
       </Location>
       <CardsContainer>
         <button onClick={() => scrollHandler(-200)}>

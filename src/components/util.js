@@ -1,6 +1,6 @@
 // get forescast handler
 export const getForecastHandler = (day1, day2, currentTime) => {
-  const timeMerge = [...day1, ...day2].slice(currentTime + 1, currentTime + 7);
+  const timeMerge = [...day1, ...day2].slice(currentTime + 1, currentTime + 25);
   return timeMerge;
 };
 // get hour handler
