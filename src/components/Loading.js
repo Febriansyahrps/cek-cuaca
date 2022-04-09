@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Loading = () => {
   return (
     <LoadingData>
-      <div class="lds-default">
+      <div className="lds-default">
         <div></div>
         <div></div>
         <div></div>

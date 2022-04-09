@@ -28,8 +28,10 @@ const Home = () => {
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
-    dispatch(getLocationWeather(location));
-  }, [dispatch, location]);
+    if (location !== null) {
+      dispatch(getLocationWeather(location));
+    }
+  }, [location, dispatch]);
   // useSelector
   const { weather, loading } = useSelector((state) => state.weatherInfo);
   return (

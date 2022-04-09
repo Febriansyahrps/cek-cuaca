@@ -36,7 +36,9 @@ const Navbar = ({ setLocationError, setErrorMessage }) => {
       },
       { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
     );
-    dispatch(getLocationWeather(location));
+    if (location !== null) {
+      dispatch(getLocationWeather(location));
+    }
   };
   return (
     <NavbarContainer>
